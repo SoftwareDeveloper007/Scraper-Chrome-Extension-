@@ -1,0 +1,41 @@
+{
+    "background": {
+        "scripts": [ "backgroundSendToServer.js" ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "icons/icon.png",
+            "38": "icons/icon.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "Get UID by Autoclick"
+    },
+    "content_scripts": [
+        {
+            "css": [ "css/facebook_helper.css" ],
+            "js": [ "js/jquery.js", "js/myhttp.js", "js/script_helper.js", "js/script_scrape.js" ],
+            "matches": [ "*://*.facebook.com/search/*" ]
+        },
+        {
+            "css": [ "css/facebook_helper.css" ],
+            "js": [ "js/jquery.js", "js/script_show.js" ],
+            "matches": [ "*://*.facebook.com/*" ]
+        }
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.facebook.com; object-src 'self'",
+    "description": "Fast Extension(Plugin) Scraper Facebook UID from Facebook Graph Search",    
+    "homepage_url": "http://autoclick.us/projects",
+    "icons": {
+        "128": "icons/icon.png",
+        "16": "icons/icon.png",
+        "48": "icons/icon.png"
+    },
+    "manifest_version": 2,
+    "minimum_chrome_version": "30",
+    "name": "FB UID Scraper",
+    "permissions": [ "tabs", "storage", "unlimitedStorage", "\u003Call_urls>" ],
+    "short_name": "UIDScraper",
+    "version": "3.6",
+    "web_accessible_resources": [ "icons/icon.png" ]
+}
